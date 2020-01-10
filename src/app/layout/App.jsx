@@ -21,4 +21,4 @@ class App extends Component {
 export default App;
 
 //the advantage of using a fragment instead of a div, is 
-// that it is added to the html when compiling
+// that it is not added to the html when compiling
