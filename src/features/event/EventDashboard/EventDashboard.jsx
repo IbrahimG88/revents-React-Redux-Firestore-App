@@ -66,9 +66,10 @@ class EventDashboard extends Component {
   }
 
   //that is a toggle function to return to previous state or the opposite value using !value
+  // this way will be applied synchronously:
   handleIsOpenToggle =  () => {
-    this.setState((prevState) => ({
-      isOpen:!prevState.isOpen 
+    this.setState(({isOpen}) => ({
+      isOpen:!isOpen 
     }))
   }
 
@@ -83,7 +84,7 @@ class EventDashboard extends Component {
         </Grid.Column>
         <Grid.Column width={6}>
           <Button onClick={this.handleIsOpenToggle} positive content='Create Event' />
-          {isOpen && <EventForm />}
+          {isOpen && <EventForm  cancelFormOpen={this.handleIsOpenToggle}/>}
         </Grid.Column>
       </Grid>
     );
