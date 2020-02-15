@@ -67,6 +67,7 @@ class EventDashboard extends Component {
 
   //that is a toggle function to return to previous state or the opposite value using !value
   // this way will be applied synchronously:
+  // shorthand for this.setState({isOpen: isOpen})
   handleIsOpenToggle =  () => {
     this.setState(({isOpen}) => ({
       isOpen:!isOpen 
