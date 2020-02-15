@@ -64,6 +64,15 @@ class EventDashboard extends Component {
     events: events,
     isOpen: false
   }
+
+  //that is a toggle function to return to previous state or the opposite value using !value
+  handleIsOpenToggle =  () => {
+    this.setState((prevState) => ({
+      isOpen:!prevState.isOpen 
+    }))
+  }
+
+
   render() {
     // events and isOpen will inherit from this.state.events and isOpen the same
     const {events, isOpen} = this.state;
@@ -73,7 +82,7 @@ class EventDashboard extends Component {
           <EventList events={events} />
         </Grid.Column>
         <Grid.Column width={6}>
-          <Button positive content='Create Event' />
+          <Button onClick={this.handleIsOpenToggle} positive content='Create Event' />
           {isOpen && <EventForm />}
         </Grid.Column>
       </Grid>
